@@ -51,6 +51,10 @@ my-shop/
 ├── vite.config.js
 ```
 
+## Screenshot
+
+![Main interface](images/my-shop-screenShot.png)
+
 ## Installation
 
 1. **Clone the repository**:
