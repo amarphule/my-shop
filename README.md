@@ -1,5 +1,9 @@
 # My Shop App
 
+## Screenshot
+
+![Main interface](images/my-shop-screenShot.png)
+
 ## Description
 
 My Shop App is a React application built with Vite, designed to help shop owners manage their customers purchase records. The app allows viewing, adding, editing, and deleting customer records, with details displayed in an interactive and user-friendly interface.
@@ -50,10 +54,6 @@ my-shop/
 ├── tailwind.config.js
 ├── vite.config.js
 ```
-
-## Screenshot
-
-![Main interface](images/my-shop-screenShot.png)
 
 ## Installation
 
