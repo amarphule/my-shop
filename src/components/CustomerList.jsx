@@ -1,7 +1,14 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { deleteCustomer } from "../features/customersSlice";
 
 const CustomerList = () => {
+  const dispatch = useDispatch();
   const customers = useSelector((state) => state.customers);
+
+  const handleDelete = (id) => {
+    confirm("Are you sure, Do you want to delete record?");
+    dispatch(deleteCustomer(id));
+  };
   return (
     <>
       <div className="w-1/2 p-4">
@@ -39,10 +46,13 @@ const CustomerList = () => {
                       <div>{customer.amount}</div>
                     </td>
                     <td className="px-7 py-4 text-lg">
-                      <button className="bg-slate-500 hover:bg-slate-700 text-white mr-2  px-3 py-2 rounded-md">
+                      <button className="bg-slate-500 hover:bg-slate-700 text-white mr-2 px-2 py-1 sm:px-2 sm:py-1 md:px-3 md:py-2 rounded-md">
                         Edit
                       </button>
-                      <button className="bg-red-500 hover:bg-red-700 text-white px-3 py-2 rounded-md">
+                      <button
+                        onClick={() => handleDelete(customer.id)}
+                        className="bg-red-500 hover:bg-red-700 text-white px-2 py-1 sm:px-2 sm:py-1 md:px-3 md:py-2 rounded-md"
+                      >
                         Delete
                       </button>
                     </td>

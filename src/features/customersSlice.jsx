@@ -28,8 +28,13 @@ const customerSlice = createSlice({
     addCustomer: (state, action) => {
       state.push(action.payload);
     },
+    deleteCustomer: (state, action) => {
+      return state.filter(
+        (customer) => Number(customer.id) !== Number(action.payload)
+      );
+    },
   },
 });
 
-export const { addCustomer } = customerSlice.actions;
+export const { addCustomer, deleteCustomer } = customerSlice.actions;
 export default customerSlice.reducer;
