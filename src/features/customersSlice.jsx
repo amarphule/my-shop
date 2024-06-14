@@ -29,9 +29,7 @@ const customerSlice = createSlice({
       state.push(action.payload);
     },
     deleteCustomer: (state, action) => {
-      return state.filter(
-        (customer) => Number(customer.id) !== Number(action.payload)
-      );
+      return state.filter((customer) => customer.id !== action.payload);
     },
   },
 });
