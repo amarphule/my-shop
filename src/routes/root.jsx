@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import App from "../App.jsx";
 
-import Addcustomer from "../components/Addcustomer.jsx";
+import AddCustomer from "../components/AddCustomer.jsx";
 import CustomerDetails from "../components/CustomerDetails.jsx";
 import Hero from "../components/Hero.jsx";
 
@@ -16,11 +16,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "customer",
-        element: <Addcustomer />,
+        element: <AddCustomer />,
       },
       {
         path: "customer/:id",
-        element: <Addcustomer />,
+        element: <AddCustomer />,
       },
       {
         path: "customer/edit/:id",

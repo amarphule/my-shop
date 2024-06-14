@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addCustomer, updateCustomer } from "../features/customersSlice";
 import { useNavigate, useParams } from "react-router-dom";
 
-const Addcustomer = () => {
+const AddCustomer = () => {
   const customerId = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -122,4 +122,4 @@ const Addcustomer = () => {
   );
 };
 
-export default Addcustomer;
+export default AddCustomer;
