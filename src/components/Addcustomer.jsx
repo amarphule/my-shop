@@ -1,6 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Addcustomer = () => {
+  const [newCustomer, setNewCustomer] = useState({
+    name: "",
+    noOfPurchase: "",
+    amount: "",
+  });
+  const { name, noOfPurchase, amount } = newCustomer;
+
+  const handleChange = (e) => {
+    setNewCustomer({ ...newCustomer, [e.target.name]: e.target.value });
+  };
+
   return (
     <>
       <div className="p-4">
@@ -16,8 +27,10 @@ const Addcustomer = () => {
             <input
               type="text"
               placeholder="e.g Amardeep Phule"
-              name="customerName"
+              name="name"
               id="customerName"
+              value={name}
+              onChange={handleChange}
               className="px-3 py-3 text-lg border-slate-900 bg-slate-100 shadow-sm rounded-md flex-1"
             />
           </div>
@@ -33,6 +46,8 @@ const Addcustomer = () => {
               placeholder="e.g 10"
               name="noOfPurchase"
               id="noOfPurchase"
+              value={noOfPurchase}
+              onChange={handleChange}
               className="px-3 py-3 text-lg border-slate-900 bg-slate-100 shadow-sm rounded-md flex-1"
             />
           </div>
@@ -48,6 +63,8 @@ const Addcustomer = () => {
               placeholder="e.g 900"
               name="amount"
               id="amount"
+              value={amount}
+              onChange={handleChange}
               className="px-3 py-3 text-lg border-slate-900 bg-slate-100 shadow-sm rounded-md flex-1"
             />
           </div>
