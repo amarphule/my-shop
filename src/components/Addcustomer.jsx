@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addCustomer } from "../features/customersSlice";
 
 const Addcustomer = () => {
   const [newCustomer, setNewCustomer] = useState({
@@ -8,15 +10,27 @@ const Addcustomer = () => {
   });
   const { name, noOfPurchase, amount } = newCustomer;
 
+  const dispatch = useDispatch();
+
   const handleChange = (e) => {
     setNewCustomer({ ...newCustomer, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmitForm = (e) => {
+    e.preventDefault();
+    if (!name || !noOfPurchase || !amount) {
+      alert("Please Enter value");
+      return;
+    }
+    dispatch(addCustomer({ ...newCustomer, id: Date.now() }));
+    setNewCustomer({ name: "", noOfPurchase: "", amount: "" });
   };
 
   return (
     <>
       <div className="p-4">
         <h2 className="text-3xl font-semibold py-2">Addcustomer</h2>
-        <form className="space-y-4">
+        <form className="space-y-4" onSubmit={handleSubmitForm}>
           <div className="flex items-center gap-8">
             <label
               htmlFor="customerName"

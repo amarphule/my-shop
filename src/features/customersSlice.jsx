@@ -24,7 +24,12 @@ const initialState = [
 const customerSlice = createSlice({
   name: "customre",
   initialState,
-  reducers: {},
+  reducers: {
+    addCustomer: (state, action) => {
+      state.push(action.payload);
+    },
+  },
 });
 
+export const { addCustomer } = customerSlice.actions;
 export default customerSlice.reducer;
