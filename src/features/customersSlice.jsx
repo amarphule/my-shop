@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+// Initial Mock Data
 const initialState = [
   {
     id: 1,
@@ -31,8 +32,18 @@ const customerSlice = createSlice({
     deleteCustomer: (state, action) => {
       return state.filter((customer) => customer.id !== action.payload);
     },
+    updateCustomer: (state, action) => {
+      const customerIndex = state.findIndex(
+        (customer) => customer.id == action.payload.id
+      );
+      if (customerIndex !== -1) {
+        state[customerIndex] = action.payload;
+      }
+    },
   },
 });
 
-export const { addCustomer, deleteCustomer } = customerSlice.actions;
+export const { addCustomer, deleteCustomer, updateCustomer } =
+  customerSlice.actions;
+
 export default customerSlice.reducer;
