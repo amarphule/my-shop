@@ -16,8 +16,8 @@ const CustomerList = () => {
     navigate(`customer/${id}`);
   };
   return (
-    <div className="md:flex">
-      <div className="w-1/2 p-4 text-center flex flex-col border-r-2 space-y-3">
+    <section className="md:flex">
+      <aside className="w-1/2 p-4 text-center flex flex-col border-r-2 space-y-3">
         <h2 className="text-3xl  font-semibold py-2">Customer List</h2>
         {customers.length > 0 ? (
           <table className="divide-y divide-slate-900 bg-slate-100 shadow-md">
@@ -77,11 +77,11 @@ const CustomerList = () => {
             No customer found.
           </div>
         )}
-      </div>
-      <div className="w-1/2 p-4">
+      </aside>
+      <aside className="w-1/2 p-4">
         <Outlet />
-      </div>
-    </div>
+      </aside>
+    </section>
   );
 };
 

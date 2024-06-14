@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const App = () => {
   return (
-    <>
+    <main>
       <h1 className="text-4xl font-semibold underline text-center py-5 mt-3">
         Today's Purchase
       </h1>
@@ -19,7 +19,7 @@ const App = () => {
         </Link>
       </div>
       <CustomerList />
-    </>
+    </main>
   );
 };
 

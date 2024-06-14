@@ -15,7 +15,7 @@ const CustomerDetails = () => {
 
   return (
     <>
-      <div className="p-4 max-w-lg mx-auto items-center">
+      <section className="p-4 max-w-lg mx-auto items-center">
         <h2 className="text-3xl font-semibold py-2">Customer Details</h2>
         <div className="shadow-md bg-slate-100 w-full px-8 py-9 space-y-4">
           <p className="text-2xl font-medium mr-2">
@@ -37,7 +37,7 @@ const CustomerDetails = () => {
             </span>
           </p>
         </div>
-      </div>
+      </section>
     </>
   );
 };

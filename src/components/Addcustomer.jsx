@@ -55,7 +55,7 @@ const Addcustomer = () => {
 
   return (
     <>
-      <div className="p-4">
+      <section className="p-4">
         <h2 className="text-3xl font-semibold py-2">
           {customerId.id ? "Update Customer" : "Add Customer"}
         </h2>
@@ -117,7 +117,7 @@ const Addcustomer = () => {
             </button>
           </div>
         </form>
-      </div>
+      </section>
     </>
   );
 };
