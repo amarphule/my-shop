@@ -38,7 +38,7 @@ const AddCustomer = () => {
 
   const handleSubmitForm = (e) => {
     e.preventDefault();
-    // Black field check
+    // Blank field check
     if (!name || !noOfPurchase || !amount) {
       alert("Please Enter value");
       return;
