@@ -12,8 +12,8 @@ const App = () => {
           Home
         </Link>
         <Link
-          to={"/customer"}
-          className="px-4 py-2  bg-blue-600 hover:bg-blue-500 text-white rounded-md"
+          to={"/add-customer"}
+          className="px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white rounded-md"
         >
           Add Customer
         </Link>

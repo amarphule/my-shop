@@ -4,6 +4,7 @@ import { addCustomer, updateCustomer } from "../features/customersSlice";
 import { useNavigate, useParams } from "react-router-dom";
 
 const AddCustomer = () => {
+  const [error, setError] = useState();
   const customerId = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -33,6 +34,7 @@ const AddCustomer = () => {
   }, [customer]);
 
   const handleChange = (e) => {
+    if (isNaN(e.target.value)) setError("Please enter valid number");
     setNewCustomer({ ...newCustomer, [e.target.name]: e.target.value });
   };
 
@@ -55,7 +57,7 @@ const AddCustomer = () => {
 
   return (
     <>
-      <section className="p-4">
+      <section className="w-full items-center justify-center p-4">
         <h2 className="text-3xl font-semibold py-2">
           {customerId.id ? "Update Customer" : "Add Customer"}
         </h2>
@@ -90,6 +92,7 @@ const AddCustomer = () => {
               name="noOfPurchase"
               id="noOfPurchase"
               value={noOfPurchase}
+              min={0}
               onChange={handleChange}
               className="px-3 py-2 text-xl  border-slate-900 bg-slate-100 shadow-sm rounded-md flex-1"
             />
@@ -107,6 +110,7 @@ const AddCustomer = () => {
               name="amount"
               id="amount"
               value={amount}
+              min={0}
               onChange={handleChange}
               className="px-3 py-2 text-xl border-slate-900 bg-slate-100 shadow-sm rounded-md flex-1"
             />

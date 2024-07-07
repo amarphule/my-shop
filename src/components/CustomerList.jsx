@@ -13,12 +13,12 @@ const CustomerList = () => {
   };
 
   const handleUpdate = (id) => {
-    navigate(`customer/${id}`);
+    navigate(`customer/edit/${id}`);
   };
   return (
-    <section className="md:flex">
-      <aside className="w-1/2 p-4 text-center flex flex-col border-r-2 space-y-3">
-        <h2 className="text-3xl  font-semibold py-2">Customer List</h2>
+    <section className="md:flex w-full space-y-4 md:space-y-0">
+      <aside className="md:w-1/2 w-full p-4 text-center flex flex-col border-r-2 space-y-3">
+        <h2 className="text-3xl font-semibold py-2">Customer List</h2>
         {customers.length > 0 ? (
           <table className="divide-y divide-slate-900 bg-slate-100 shadow-md">
             <thead>
@@ -42,18 +42,20 @@ const CustomerList = () => {
                 return (
                   <tr key={customer.id}>
                     <td
-                      className="px-7 py-2 text-lg cursor-pointer hover:bg-slate-200"
-                      onClick={() => navigate(`customer/edit/${customer.id}`)}
+                      className="md:px-7 py-2 text-lg cursor-pointer hover:bg-slate-200"
+                      onClick={() =>
+                        navigate(`customer/details/${customer.id}`)
+                      }
                     >
                       <div>{customer.name}</div>
                     </td>
-                    <td className="px-7 py-2 text-lg">
+                    <td className="md:px-7 py-2 text-lg">
                       <div>{customer.noOfPurchase}</div>
                     </td>
-                    <td className="px-7 py-2 text-lg">
+                    <td className="md:px-7 py-2 text-lg">
                       <div>{customer.amount}</div>
                     </td>
-                    <td className="px-7 py-2 text-lg">
+                    <td className="md:px-7 py-2 text-lg">
                       <button
                         onClick={() => handleUpdate(customer.id)}
                         className="bg-slate-500 hover:bg-slate-700 text-white mr-2 px-2 py-1 sm:px-2 sm:py-1 md:px-3 md:py-2 rounded-md"
@@ -78,7 +80,7 @@ const CustomerList = () => {
           </div>
         )}
       </aside>
-      <aside className="w-1/2 p-4">
+      <aside className="md:w-1/2 w-full p-4">
         <Outlet />
       </aside>
     </section>
