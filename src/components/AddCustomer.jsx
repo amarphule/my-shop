@@ -4,7 +4,6 @@ import { addCustomer, updateCustomer } from "../features/customersSlice";
 import { useNavigate, useParams } from "react-router-dom";
 
 const AddCustomer = () => {
-  const [error, setError] = useState();
   const customerId = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -30,19 +29,24 @@ const AddCustomer = () => {
         noOfPurchase: customer.noOfPurchase,
         amount: customer.amount,
       });
+    } else {
+      setNewCustomer({ name: "", noOfPurchase: "", amount: "" });
     }
-  }, [customer]);
+  }, [customer, customerId.id]);
 
   const handleChange = (e) => {
-    if (isNaN(e.target.value)) setError("Please enter valid number");
     setNewCustomer({ ...newCustomer, [e.target.name]: e.target.value });
   };
 
   const handleSubmitForm = (e) => {
     e.preventDefault();
     // Blank field check
-    if (!name || !noOfPurchase || !amount) {
-      alert("Please Enter value");
+    if (!name) {
+      alert("Please Enter Customer name");
+      return;
+    }
+    if (!noOfPurchase || !amount) {
+      alert("Please Enter Number");
       return;
     }
 
